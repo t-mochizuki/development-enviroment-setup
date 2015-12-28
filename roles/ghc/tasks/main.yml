@@ -1,0 +1,19 @@
+- name: download ghc
+  get_url:
+    url: http://downloads.haskell.org/~ghc/7.10.3/ghc-7.10.3-x86_64-apple-darwin.tar.xz
+    dest: ~/work
+    sha256sum: 852781d43d41cd55d02f818fe798bb4d1f7e52f488408167f413f7948cf1e7df
+
+- name: unarchive ghc
+  unarchive:
+    src: ~/work/ghc-7.10.3-x86_64-apple-darwin.tar.xz
+    dest: ~/work
+    mode: 0755
+    copy: no
+    creates: ~/work/ghc-7.10.3
+
+- name: install ghc
+  shell: ./configure --prefix=$HOME/ghc-7.10.3 && make install
+  args:
+    chdir: ~/work/ghc-7.10.3
+    creates: ~/ghc-7.10.3

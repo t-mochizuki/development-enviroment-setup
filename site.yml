@@ -6,3 +6,4 @@
     PATH: "{{ ansible_env.PATH }}"
   roles:
     - sbt
+    - ghc
