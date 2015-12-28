@@ -1,4 +1,4 @@
-- name: install sbt
+- name: setup simple
   hosts: user
   sudo: no
   connection: local
@@ -7,3 +7,4 @@
   roles:
     - sbt
     - ghc
+    - jekyll

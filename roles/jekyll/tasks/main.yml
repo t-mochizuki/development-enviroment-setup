@@ -1,0 +1,10 @@
+- name: make a directory
+  file:
+    dest: ~/jekyll
+    state: directory
+    mode: 0755
+
+- name: install jekyll
+  shell: gem install --install-dir . jekyll
+  args:
+    chdir: ~/jekyll
