@@ -1,0 +1,4 @@
+- name: install node
+  shell: NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install v5.3.0
+  args:
+    creates: ~/.nvm/versions/node/v5.3.0

@@ -8,3 +8,5 @@
     - sbt
     - ghc
     - jekyll
+    - nvm
+    - node
