@@ -1,12 +1,18 @@
 - name: download vim
-  git:
-    repo: https://github.com/vim/vim.git
-    dest: ~/work/vim
-    update: no
-    version: v7.4.981
+  get_url:
+    url: https://github.com/vim/vim/archive/v7.4.983.tar.gz
+    dest: ~/work
+
+- name: unarchive vim
+  unarchive:
+    src: ~/work/vim-7.4.983.tar.gz
+    dest: ~/work
+    mode: 0755
+    copy: no
+    creates: ~/work/vim-7.4.983
 
 - name: install vim
   shell: ./configure --disable-gui --enable-pythoninterp=dynamic --enable-rubyinterp=dynamic --enable-cscope --disable-netbeans --enable-multibyte --disable-xim --disable-sysmouse --with-features=normal --without-x --disable-xsmp --prefix=$HOME/vim && make && make install
   args:
-    chdir: ~/work/vim
+    chdir: ~/work/vim-7.4.983
     creates: ~/vim
