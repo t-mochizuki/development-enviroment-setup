@@ -1,0 +1,12 @@
+- name: download vim
+  git:
+    repo: https://github.com/vim/vim.git
+    dest: ~/work/vim
+    update: no
+    version: v7.4.981
+
+- name: install vim
+  shell: ./configure --disable-gui --enable-pythoninterp=dynamic --enable-rubyinterp=dynamic --enable-cscope --disable-netbeans --enable-multibyte --disable-xim --disable-sysmouse --with-features=normal --without-x --disable-xsmp --prefix=$HOME/vim && make && make install
+  args:
+    chdir: ~/work/vim
+    creates: ~/vim

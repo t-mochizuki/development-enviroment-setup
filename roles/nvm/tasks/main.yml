@@ -2,4 +2,5 @@
   git:
     repo: https://github.com/creationix/nvm.git
     dest: ~/.nvm
+    update: no
     version: v0.30.0
