@@ -12,6 +12,10 @@
     copy: no
     creates: ~/work/global-6.5.2
 
+- name: install Pygments
+  pip:
+    name: Pygments
+
 - name: install global
   shell: ./configure --prefix=$HOME/global-6.5.2 && make && make install
   args:
