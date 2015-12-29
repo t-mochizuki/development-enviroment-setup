@@ -12,3 +12,4 @@
     - node
     - vim
     - cmake
+    - redis
