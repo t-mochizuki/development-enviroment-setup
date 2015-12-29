@@ -15,3 +15,4 @@
     - redis
     - mysql
     - ctags
+    - global
