@@ -13,3 +13,4 @@
     - vim
     - cmake
     - redis
+    - mysql
