@@ -4,7 +4,10 @@
   connection: local
   environment:
     PATH: "{{ ansible_env.PATH }}"
+  vars:
+    - tmp_dir: tmp
   roles:
+    - common
     - sbt
     - ghc
     - jekyll

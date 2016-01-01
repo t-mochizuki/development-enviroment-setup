@@ -1,16 +1,16 @@
 - name: download global
   get_url:
     url: http://tamacom.com/global/global-6.5.2.tar.gz
-    dest: ~/work
+    dest: ~/{{tmp_dir}}
     force: no
 
 - name: unarchive global
   unarchive:
-    src: ~/work/global-6.5.2.tar.gz
-    dest: ~/work
+    src: ~/{{tmp_dir}}/global-6.5.2.tar.gz
+    dest: ~/{{tmp_dir}}
     mode: 0755
     copy: no
-    creates: ~/work/global-6.5.2
+    creates: ~/{{tmp_dir}}/global-6.5.2
 
 - name: install Pygments
   pip:
@@ -19,6 +19,6 @@
 - name: install global
   shell: ./configure --prefix=$HOME/global-6.5.2 && make && make install
   args:
-    chdir: ~/work/global-6.5.2
+    chdir: ~/{{tmp_dir}}/global-6.5.2
     creates: ~/global-6.5.2
 

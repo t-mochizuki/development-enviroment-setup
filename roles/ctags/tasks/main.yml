@@ -1,20 +1,20 @@
 - name: download ctags
   get_url:
     url: http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
-    dest: ~/work
+    dest: ~/{{tmp_dir}}
     force: no
 
 - name: unarchive ctags
   unarchive:
-    src: ~/work/ctags-5.8.tar.gz
-    dest: ~/work
+    src: ~/{{tmp_dir}}/ctags-5.8.tar.gz
+    dest: ~/{{tmp_dir}}
     mode: 0755
     copy: no
-    creates: ~/work/ctags-5.8
+    creates: ~/{{tmp_dir}}/ctags-5.8
 
 - name: install ctags
   shell: ./configure --prefix=$HOME/ctags-5.8 && make && make install
   args:
-    chdir: ~/work/ctags-5.8
+    chdir: ~/{{tmp_dir}}/ctags-5.8
     creates: ~/ctags-5.8
 

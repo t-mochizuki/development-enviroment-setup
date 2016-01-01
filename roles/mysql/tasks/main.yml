@@ -1,19 +1,19 @@
 - name: download mysql
   get_url:
     url: http://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.9.tar.gz
-    dest: ~/work
+    dest: ~/{{tmp_dir}}
     force: no
 
 - name: unarchive mysql
   unarchive:
-    src: ~/work/mysql-5.7.9.tar.gz
-    dest: ~/work
+    src: ~/{{tmp_dir}}/mysql-5.7.9.tar.gz
+    dest: ~/{{tmp_dir}}
     mode: 0755
     copy: no
-    creates: ~/work/mysql-5.7.9
+    creates: ~/{{tmp_dir}}/mysql-5.7.9
 
 - name: install mysql
   shell: cmake . -DCMAKE_INSTALL_PREFIX=$HOME/mysql-5.7.9 -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DMYSQL_DATADIR=$HOME/mysql/var/mysql -DMYSQL_UNIX_ADDR=$HOME/mysql/tmp/mysql.sock -DSYSCONFDIR=$HOME/mysql/etc -DTMPDIR=$HOME/mysql/tmp -DWITH_INNOBASE_STORAGE_ENGINE=1 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=$HOME/boost && make && make install
   args:
-    chdir: ~/work/mysql-5.7.9
+    chdir: ~/{{tmp_dir}}/mysql-5.7.9
     creates: ~/mysql-5.7.9

@@ -1,16 +1,16 @@
 - name: download sbt
   get_url:
     url: https://dl.bintray.com/sbt/native-packages/sbt/0.13.9/sbt-0.13.9.tgz
-    dest: ~/work
+    dest: ~/{{tmp_dir}}
 
 - name: download sbt checksum
   get_url:
     url: https://dl.bintray.com/sbt/native-packages/sbt/0.13.9/sbt-0.13.9.tgz.md5
-    dest: ~/work
+    dest: ~/{{tmp_dir}}
 
 - name: unarchive sbt
   unarchive:
-    src: ~/work/sbt-0.13.9.tgz
+    src: ~/{{tmp_dir}}/sbt-0.13.9.tgz
     dest: ~/
     mode: 0755
     copy: no

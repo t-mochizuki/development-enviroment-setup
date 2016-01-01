@@ -20,8 +20,6 @@ eval "$(pyenv init -)"
 To run the ansible playbook, you will need to install Python and Ansible.
 
 ``` sh
-$ mkdir work
-$ cd work
 $ git clone https://github.com/t-mochizuki/setup-simple.git
 $ cd setup-simple
 $ pyenv install 2.7.10

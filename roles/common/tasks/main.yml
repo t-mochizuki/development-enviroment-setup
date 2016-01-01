@@ -1,0 +1,4 @@
+- name: create a temporary directory
+  file:
+    path: ~/{{tmp_dir}}
+    state: directory

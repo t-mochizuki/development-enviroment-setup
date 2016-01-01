@@ -1,19 +1,19 @@
 - name: download redis
   get_url:
     url: http://download.redis.io/releases/redis-3.0.6.tar.gz
-    dest: ~/work
+    dest: ~/{{tmp_dir}}
     force: no
 
 - name: unarchive redis
   unarchive:
-    src: ~/work/redis-3.0.6.tar.gz
-    dest: ~/work
+    src: ~/{{tmp_dir}}/redis-3.0.6.tar.gz
+    dest: ~/{{tmp_dir}}
     mode: 0755
     copy: no
-    creates: ~/work/redis-3.0.6
+    creates: ~/{{tmp_dir}}/redis-3.0.6
 
 - name: install redis
   shell: make && make PREFIX=$HOME/redis-3.0.6 install
   args:
-    chdir: ~/work/redis-3.0.6
+    chdir: ~/{{tmp_dir}}/redis-3.0.6
     creates: ~/redis-3.0.6
