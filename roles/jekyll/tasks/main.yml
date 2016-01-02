@@ -4,7 +4,20 @@
     state: directory
     mode: 0755
 
-- name: install jekyll
-  shell: gem install --install-dir . jekyll
+- name: install redcarpet
+  shell: gem install --install-dir . redcarpet -v 3.3.4
   args:
     chdir: ~/jekyll
+    creates: ~/jekyll/redcarpet-3.3.4.gem
+
+- name: install jekyll-gist
+  shell: gem install --install-dir . jekyll-gist -v 1.4.0
+  args:
+    chdir: ~/jekyll
+    creates: ~/jekyll/jekyll-gist-1.4.0.gem
+
+- name: install jekyll
+  shell: gem install --install-dir . jekyll -v 3.0.1
+  args:
+    chdir: ~/jekyll
+    creates: ~/jekyll/jekyll-3.0.1.gem
