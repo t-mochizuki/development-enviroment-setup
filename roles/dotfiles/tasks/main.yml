@@ -1,0 +1,34 @@
+- name: clone dotfiles
+  git:
+    repo: https://github.com/t-mochizuki/dotfiles.git
+    dest: ~/{{tmp_dir}}/dotfiles
+    update: no
+    version: HEAD
+
+- name: set .vimrc
+  file:
+   src: ~/{{tmp_dir}}/dotfiles/.vimrc
+   dest: ~/.vimrc
+   mode: 0755
+   state: link
+
+- name: set .zshrc
+  file:
+   src: ~/{{tmp_dir}}/dotfiles/.zshrc
+   dest: ~/.zshrc
+   mode: 0755
+   state: link
+
+- name: set .zshenv
+  file:
+   src: ~/{{tmp_dir}}/dotfiles/.zshenv
+   dest: ~/.zshenv
+   mode: 0755
+   state: link
+
+- name: set .gemrc
+  file:
+   src: ~/{{tmp_dir}}/dotfiles/.gemrc
+   dest: ~/.gemrc
+   mode: 0755
+   state: link

@@ -7,6 +7,7 @@
   vars:
     - tmp_dir: tmp
   roles:
+    - dotfiles
     - common
     - sbt
     - ghc
