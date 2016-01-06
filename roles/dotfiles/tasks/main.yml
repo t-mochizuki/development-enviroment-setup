@@ -2,7 +2,7 @@
   git:
     repo: https://github.com/t-mochizuki/dotfiles.git
     dest: ~/{{tmp_dir}}/dotfiles
-    update: no
+    update: yes
     version: HEAD
 
 - name: set .vimrc
@@ -32,3 +32,10 @@
    dest: ~/.gemrc
    mode: 0755
    state: link
+
+- name: set .gitconfig
+  file:
+    src: ~/{{tmp_dir}}/dotfiles/.gitconfig
+    dest: ~/.gitconfig
+    mode: 0755
+    state: link
