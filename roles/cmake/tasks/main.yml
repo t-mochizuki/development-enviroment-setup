@@ -1,20 +1,20 @@
 - name: download cmake
   get_url:
-    url: https://cmake.org/files/v3.4/cmake-3.4.0.tar.gz
+    url: https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
     dest: ~/{{tmp_dir}}
     force: no
-    sha256sum: a5b82bf6ace6c481cdb911fd5d372a302740cbefd387e05297cb37f7468d1cea
+    sha256sum: 92d8410d3d981bb881dfff2aed466da55a58d34c7390d50449aa59b32bb5e62a
 
 - name: unarchive cmake
   unarchive:
-    src: ~/{{tmp_dir}}/cmake-3.4.0.tar.gz
+    src: ~/{{tmp_dir}}/cmake-3.5.2.tar.gz
     dest: ~/{{tmp_dir}}
     mode: 0755
     copy: no
-    creates: ~/{{tmp_dir}}/cmake-3.4.0
+    creates: ~/{{tmp_dir}}/cmake-3.5.2
 
 - name: install cmake
-  shell: ./configure --prefix=$HOME/cmake && make && make install
+  shell: ./configure --prefix=$HOME/cmake && make -j 4 && make install
   args:
-    chdir: ~/{{tmp_dir}}/cmake-3.4.0
-    creates: ~/cmake
+    chdir: ~/{{tmp_dir}}/cmake-3.5.2
+    creates: ~/cmake-3.5.2

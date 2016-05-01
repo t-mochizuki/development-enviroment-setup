@@ -13,7 +13,7 @@
     creates: ~/{{tmp_dir}}/ctags-5.8
 
 - name: install ctags
-  shell: ./configure --prefix=$HOME/ctags-5.8 && make && make install
+  shell: ./configure --prefix=$HOME/ctags-5.8 && make -j 4 && make install
   args:
     chdir: ~/{{tmp_dir}}/ctags-5.8
     creates: ~/ctags-5.8
