@@ -1,22 +1,22 @@
 - name: setup simple
   hosts: user
-  sudo: no
   connection: local
-  environment:
-    PATH: "{{ ansible_env.PATH }}"
   vars:
     - tmp_dir: tmp
   roles:
-    - dotfiles
-    - common
-    - sbt
-    - ghc
-    - jekyll
-    - nvm
-    - node
-    - vim
-    - cmake
-    - redis
-    - mysql
-    - ctags
-    - global
+    # - common
+    # - vim
+    # - autoconf
+    # - automake
+    # - screen
+    # - dotfiles
+    # - sbt
+    # - ghc
+    # - jekyll
+    # - nvm
+    # - node
+    # - cmake
+    # - redis
+    # - mysql
+    # - ctags
+    # - global

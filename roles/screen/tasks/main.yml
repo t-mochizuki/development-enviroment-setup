@@ -1,0 +1,23 @@
+- name: download screen
+  get_url:
+    url: http://ftp.gnu.org/gnu/screen/screen-4.3.1.tar.gz
+    dest: ~/{{tmp_dir}}
+
+- name: unarchive screen
+  unarchive:
+    src: ~/{{tmp_dir}}/screen-4.3.1.tar.gz
+    dest: ~/{{tmp_dir}}
+    mode: 0755
+    copy: no
+    creates: ~/{{tmp_dir}}/screen-4.3.1
+
+# utmp.h is not on MacOS X
+# https://gist.githubusercontent.com/yujinakayama/4608863/raw/75669072f227b82777df25f99ffd9657bd113847/gistfile1.diff
+- name: install screen
+  shell: |
+    PATH=$HOME/autoconf-2.69/bin:$HOME/automake-1.15/bin:$PATH
+    ./autogen.sh
+    ./configure --enable-colors256 --prefix=$HOME/screen-4.3.1 && make -j 4 && make install
+  args:
+    chdir: ~/{{tmp_dir}}/screen-4.3.1
+    creates: ~/screen-4.3.1

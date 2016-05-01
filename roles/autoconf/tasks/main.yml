@@ -1,0 +1,18 @@
+- name: download autoconf
+  get_url:
+    url: http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
+    dest: ~/{{tmp_dir}}
+
+- name: unarchive autoconf
+  unarchive:
+    src: ~/{{tmp_dir}}/autoconf-2.69.tar.gz
+    dest: ~/{{tmp_dir}}
+    mode: 0755
+    copy: no
+    creates: ~/{{tmp_dir}}/autoconf-2.69
+
+- name: install autoconf
+  shell: ./configure --prefix=$HOME/autoconf-2.69 && make -j 4 && make install
+  args:
+    chdir: ~/{{tmp_dir}}/autoconf-2.69
+    creates: ~/autoconf-2.69
