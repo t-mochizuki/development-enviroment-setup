@@ -2,3 +2,5 @@
   file:
     path: ~/{{tmp_dir}}
     state: directory
+  tags:
+    - common
