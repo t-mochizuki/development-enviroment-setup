@@ -1,37 +1,38 @@
-- name: download vim
-  get_url:
-    url: https://github.com/vim/vim/archive/v8.0.0402.tar.gz
-    dest: ~/{{tmp_dir}}
-  tags:
-    - vim
+# - name: download vim
+#   get_url:
+#     url: https://github.com/vim/vim/archive/v8.1.0570.tar.gz
+#     dest: ~/{{tmp_dir}}
+#   tags:
+#     - vim
 
 - name: unarchive vim
   unarchive:
-    src: ~/{{tmp_dir}}/vim-8.0.0402.tar.gz
+    src: ~/{{tmp_dir}}/vim-8.1.0570.tar.gz
     dest: ~/{{tmp_dir}}
     mode: 0755
     copy: no
-    creates: ~/{{tmp_dir}}/vim-8.0.0402
+    creates: ~/{{tmp_dir}}/vim-8.1.0570
   tags:
     - vim
 
 - name: install vim
   shell: |
-    ./configure --disable-gui \
+    ./configure --enable-multibyte \
+                --enable-terminal \
                 --enable-rubyinterp=dynamic \
                 --enable-cscope \
+                --disable-gui \
                 --disable-netbeans \
-                --enable-multibyte \
                 --disable-xim \
                 --disable-sysmouse \
                 --with-features=huge \
                 --without-x \
                 --disable-xsmp \
                 --enable-pythoninterp \
-                --prefix=$HOME/vim-8.0.0402
+                --prefix=$HOME/vim-8.1.0570
     make -j 4 && make install
   args:
-    chdir: ~/{{tmp_dir}}/vim-8.0.0402
-    creates: ~/vim-8.0.0402
+    chdir: ~/{{tmp_dir}}/vim-8.1.0570
+    creates: ~/vim-8.1.0570
   tags:
     - vim
