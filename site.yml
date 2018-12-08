@@ -3,6 +3,7 @@
   connection: local
   vars:
     - tmp_dir: tmp
+    - vim_version: 8.1.0570
   roles:
     # - common
     # - vim
