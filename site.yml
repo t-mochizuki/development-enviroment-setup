@@ -3,10 +3,10 @@
   connection: local
   vars:
     - tmp_dir: tmp
-    - vim_version: 8.1.0570
+    - vim_version: 8.1.1735
   roles:
     # - common
-    # - vim
+    - vim
     # - ctags
     # - redis
     # - cmake

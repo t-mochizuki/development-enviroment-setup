@@ -28,7 +28,7 @@
                 --with-features=huge \
                 --without-x \
                 --disable-xsmp \
-                --enable-pythoninterp \
+                --enable-pythoninterp=dynamic \
                 --prefix=$HOME/vim-{{vim_version}}
     make -j 4 && make install
   args:
